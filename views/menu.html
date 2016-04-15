@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productity extension options</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/custom.css"/>
+    <script src="/javascript/jquery-2.1.3.min.js"></script>
+    <script src="/javascript/module.configuration.js"></script>
+    <script src="/javascript/module.storage.js"></script>
+    <script src="/javascript/module.template.js"></script>
+    <script src="/javascript/module.content.js"></script>
+    <script src="/javascript/publish-aei-news.js"></script>
+    <script src="/javascript/handlebars-v3.0.3.js"></script>
+</head>
+    <script id="tempalte-categories" type="text/html">
+        <select class="form-control" id="category" name="category" data-cip-id="category">
+            {{#each this}}
+            <option>{{this}}</option>
+            {{/each}}
+        </select>
+    </script>
+<body>
+
+<div class="container main-container">
+    <form role="form" id="form">
+        <input type="hidden" id="url" name="url" data-cip-id="url">
+        <div class="form-group">
+            <label class="control-label" for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" data-cip-id="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="description">Description</label>
+            <textarea class="form-control" style="height: 100px" id="description" name="description" placeholder="Description..."></textarea>
+        </div>
+        <div class="form-group" style="">
+            <label class="control-label" for="category">Category</label>
+            <div id="categories"></div>
+        </div>
+        <div class="form-group">
+            <div>
+                <a id="generate-news" class="btn btn-primary" href="/views/preview.html">Generate</a>
+                <button id="clean-news" type="button" style="margin-left:10px" class="btn btn-primary">Clean</button>
+                <button type="button" class="btn btn-primary pull-right" id="publish-news">Publish</button>
+            </div>
+        </div>
+        <div>
+            <span id="success" class="label label-success" style="display: none; width: 100%"></span>
+            <span id="error" class="label label-danger" style="display: none; width: 100%"></span>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
